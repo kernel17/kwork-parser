@@ -27,8 +27,10 @@ var pagesCount int
 var period int
 
 func main() {
-	pagesCount = 3
+	pagesCount = 4
 	period = 60
+	err := playwright.Install()
+	utils.ErrorLog(err, "")
 	runner, _ = playwright.Run()
 	fls := false
 	browser, _ = runner.Chromium.Launch(playwright.BrowserTypeLaunchOptions{
@@ -213,8 +215,11 @@ func parseMatchingPosts() []types.Post {
 			id, _ := strconv.Atoi(id_text)
 
 			descrBlock, _ := card.QuerySelector("div.wants-card__description-text")
-			span, _ := descrBlock.QuerySelector("span")
-			span.Click()
+			span, err := descrBlock.QuerySelector("span")
+			utils.ErrorLog(err, "")
+			if span != nil {
+				span.Click()
+			}
 			descr, _ := descrBlock.InnerText()
 
 			priceBlock, _ := card.QuerySelector("div.wants-card__header-price")
@@ -228,7 +233,6 @@ func parseMatchingPosts() []types.Post {
 				Price:       price,
 			})
 		}
-		log.Println("wtf")
 		page.Close()
 	}
 	return posts
