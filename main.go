@@ -22,7 +22,7 @@ import (
 var cookie playwright.BrowserContextAddCookiesOptionsCookies
 var runner *playwright.Playwright
 var browser playwright.Browser
-var vk_api_token string = "vk1.a.brPshJonYQrHPmyYIYRBCZ3qAQ7mD5Go-xsUnzUKYqc1NHqPIupq1PjcA-wgb2_IAIHsrkm--2qZsVYU-Guwlc3YL1M5ZUE_pqo_1jgDFSRYvVXvn18PoQV4UBA6Dyj3yw96KN3xK-YzRNfLHT32br-Uox0Xu1m7_nXXNx_-jlcUyLREVABKk60J_VPvy75SZwzZM4ezzAon8WxbnZIwhA"
+var vk_api_token string = ""
 var pagesCount int
 var period int
 
